@@ -23,7 +23,7 @@ namespace guestbook
         }
 
         // Add post to guestbook, write it's contents to file.
-        public StorePost addPost(StorePost post)
+        public Post addPost(Post post)
         {
             posts.Add(post);
             toFile();
