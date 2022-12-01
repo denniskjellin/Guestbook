@@ -20,21 +20,21 @@ namespace guestbook
       static void Main(string[] args)
         {
             // Create instance of the class StorePost.
-            StorePost storepost = new StorePost();
+            StorePost StorePost = new StorePost();
             int i = 0;
 
             while (true)
             {
                 Console.Clear();
                 Console.CursorVisible = true; //show cursor
-                Console.WriteLine("Guestbook\n\n");
+                Console.WriteLine("Dennis Guestbook\n\n");
                 Console.WriteLine("1. Add new post");
                 Console.WriteLine("2. Remove post\n");
                 Console.WriteLine("X. Exit application\n");
                
                 // Let i = 0, start loop from 0.
                 i = 0;
-                foreach(Post post in storepost.getPosts())
+                foreach(Post post in StorePost.GetPosts())
                 {
                     Console.WriteLine("[" + i++ + "]" + post.Author + ": " + post.Content);
                 }
@@ -60,8 +60,9 @@ namespace guestbook
                             break;
                         } else
                         {
-                            // save to object if successfull
+                           
                             obj.Author = author;
+                          
                         }
                         Console.WriteLine("Whats on your mind?");
 
@@ -78,6 +79,7 @@ namespace guestbook
                         {
                             // save to object if successfull
                             obj.Content = content;
+                            StorePost.AddPost(obj);
                             // save object to the json file.
                         }
                         break;
@@ -86,7 +88,7 @@ namespace guestbook
 
                         // get input to delete
                         string index = Console.ReadLine();
-                        storepost.delPost(Convert.ToInt32(index));
+                        StorePost.DelPost(Convert.ToInt32(index));
                         break;
                     case 88:
                         Environment.Exit(0);
